@@ -6,7 +6,7 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'pip install flask && python test_app.py -v'
+  - 'pip install -r requirements.txt && python -m unittest'
 
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/docker'

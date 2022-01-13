@@ -1,5 +1,6 @@
 import unittest
-from app import hello
+
+from bridge_app import hello
 
 class TestBridgeApp(unittest.TestCase):
 
