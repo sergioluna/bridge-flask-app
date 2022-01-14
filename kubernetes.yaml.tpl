@@ -19,6 +19,22 @@ spec:
         image: us-west2-docker.pkg.dev/GOOGLE_CLOUD_PROJECT/palms-park-bridge-club/bridge-flask-app:COMMIT_SHA
         ports:
         - containerPort: 8080
+        env:
+          - name SENDGRID_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: email-secrets
+                key: SENDGRID_API_KEY
+          - name RESERVATION_EMAIL_LIST
+            valueFrom:
+              secretKeyRef:
+                name: email-secrets
+                key: RESERVATION_EMAIL_LIST
+          - name RESERVATION_EMAIL_TEMPLATE_ID
+            valueFrom:
+              secretKeyRef:
+                name: email-secrets
+                key: RESERVATION_EMAIL_TEMPLATE_ID
 ---
 kind: Service
 apiVersion: v1
